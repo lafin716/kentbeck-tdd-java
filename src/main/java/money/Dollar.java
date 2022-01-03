@@ -1,21 +1,14 @@
 package money;
 
-public class Dollar {
-
-    private int amount;
+public class Dollar extends Money {
 
     public Dollar(int amount) {
         this.amount = amount;
+        this.currency = "USD";
     }
 
     public Dollar times(int multiplier) {
         amount *= multiplier;
         return new Dollar(amount);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        Dollar dollar = (Dollar) obj;
-        return amount == dollar.amount;
     }
 }

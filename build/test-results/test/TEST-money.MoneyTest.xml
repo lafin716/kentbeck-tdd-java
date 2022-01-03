@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="money.MoneyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-03T14:12:23" hostname="DESKTOP-1JL0886" time="0.012">
+  <properties/>
+  <testcase name="testCurrency()" classname="money.MoneyTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
