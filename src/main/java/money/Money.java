@@ -1,20 +1,36 @@
 package money;
 
-public abstract class Money {
+public class Money implements Expression {
 
     protected int amount;
 
     protected String currency;
 
-    static Dollar dollar(int amount) {
-        return new Dollar(amount);
+    Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
     }
 
-    static Franc franc(int amount) {
-        return new Franc(amount);
+    static Money dollar(int amount) {
+        return new Money(amount, "USD");
     }
 
-    public abstract Money times(int multiplier);
+    static Money franc(int amount) {
+        return new Money(amount, "CHF");
+    }
+
+    public Expression times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
+    }
+
+    public Money reduce(Bank bank, String to) {
+        int rate = bank.rate(currency, to);
+        return new Money(amount / rate, to);
+    }
 
     public String currency() {
         return currency;
